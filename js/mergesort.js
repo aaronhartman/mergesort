@@ -40,12 +40,14 @@
 
           for(var i = 0; i < numberLists.length; i++) {
           	numberLists[i].style.border = "2px solid black";
+          	numberLists[i].style.backgroundColor = "#98DFEA";
+
           };
         };
         reader.readAsText(input.files[0]);
       };
 
-// Iplement Mergesort
+// Implement Mergesort
 function sort(list) {
 	var len = list.length;
 	var left;
