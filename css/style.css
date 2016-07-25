@@ -11,10 +11,36 @@ body {
 
 #heading {
   box-sizing: border-box;
+  background-color: #25283D;
+  color: #EFD9CE;
+}
+
+#heading h1 {
+  box-sizing: border-box;
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
   padding-top: 0px;
+  background-color: #25283D;
+  color: #EFD9CE;
+}
+
+#heading input {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  color: #EFD9CE;
+}
+
+#heading button {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #25283D;
 }
 
 .numberList {
@@ -23,7 +49,7 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   padding-top: 0px;
-  height: 400px;
+  height: 320px;
   overflow: auto;
 }
 
@@ -33,6 +59,7 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   padding-top: 0px;
+  color: #25283D;
   
 }
 
