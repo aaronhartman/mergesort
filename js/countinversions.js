@@ -1,22 +1,12 @@
-// function Result(list, invCount) {
-// 	this.list = list;
-// 	this.invCount = Number(invCount);
-// };
-
-
 // Implement Mergesort with Inversion calculation
 function sortInv(list, count) {
-	
-	var left;
-	var right;
-	
 	// Handle base case
 	if (list.length <= 1) {
 			return [list, count];
 	}; 
 	// split list in half and sort both halves recursively
-	left = sortInv(list.slice(0, list.length / 2), count);
-	right = sortInv(list.slice(list.length / 2, list.length), 0);
+	var left = sortInv(list.slice(0, list.length / 2), count);
+	var right = sortInv(list.slice(list.length / 2, list.length), 0);
 	
 	// merge recursively sorted branches
 	return mergeInv(left, right);
@@ -26,35 +16,31 @@ function mergeInv(leftResult, rightResult) {
 	var leftI = 0;
 	var rightI = 0;
 	var count = leftResult[1] + rightResult[1];
-	var left = leftResult[0];
-	var right = rightResult[0];
-	var length = left.length + right.length;
 	var sorted = [];
 	
-	while (leftI < left.length && rightI < right.length) {
-		if (left[leftI] <= right[rightI]) {
-			sorted.push(left[leftI]);
+	while (leftI < leftResult[0].length && rightI < rightResult[0].length) {
+		if (leftResult[0][leftI] <= rightResult[0][rightI]) {
+			sorted.push(leftResult[0][leftI]);
 			leftI++;			
 		} else {
-			sorted.push(right[rightI]);		
+			sorted.push(rightResult[0][rightI]);		
 			rightI++;
-			if (left.length > leftI) {
-				count += (left.length - leftI);
+			if (leftResult[0].length > leftI) {
+				count += (leftResult[0].length - leftI);
 			} else {
 				count++;
 			};
 		};
 	};
 	
-	while (leftI < (left.length)) {
-		sorted.push(left[leftI]);
+	while (leftI < (leftResult[0].length)) {
+		sorted.push(leftResult[0][leftI]);
 		leftI++;
 	};
-	while (rightI < (right.length)) {
-		sorted.push(right[rightI]);
+	while (rightI < (rightResult[0].length)) {
+		sorted.push(rightResult[0][rightI]);
 		rightI++;
 	};
-	res = [sorted, count];
-	return res;
+	return [sorted, count];
 }
 

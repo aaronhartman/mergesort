@@ -11,7 +11,6 @@ var invFooter = document.getElementById('invFooter');
 var inputHeaderText = ("Unsorted Array: ");
 var outputHeaderText = ("Sorted Array: ");
 
-
 // Accept file as input
 var openFile = function(event) {
         
@@ -19,16 +18,15 @@ var openFile = function(event) {
 
         // clear results upon selection of a new file
         // TODO: handle if user "Cancels" in file dialogue
-        outputContent.innerText  = "";
-        outputContent.innerText  = "";
-        outputFooter.innerText = "";
-        invFooter.innerText = "";
+        clearOutput();
 
         var reader = new FileReader();
         reader.onload = function(){
           fileOpen = true;
           inputArray = [];
-          inputArray = reader.result.split("\n");	
+          inputArray = reader.result.split("\n");
+          // release reader resources  
+          reader = null;
           if (isBlank(inputArray[inputArray.length - 1])) {
           	inputArray.pop();
             };
@@ -44,8 +42,6 @@ var openFile = function(event) {
           inputHeader.innerText = inputHeaderText;
           outputHeader.innerText = outputHeaderText;
           
-
-
           // make numberList boxes visible if they aren't already
           if (!numberLists) {
           var numberLists = document.getElementsByClassName("numberList");
@@ -54,8 +50,6 @@ var openFile = function(event) {
               numberLists[i].style.backgroundColor = "#C4BABA";
               };
           };
-          // release resources
-          reader = null;
         };
         
       reader.readAsText(input.files[0]);
@@ -100,3 +94,10 @@ function countInversions() {
 function isBlank(str) {
     return (!str || /^\s*$/.test(str));
 };
+
+function clearOutput() {
+  outputContent.innerText  = "";
+  outputContent.innerText  = "";
+  outputFooter.innerText = "";  
+  invFooter.innerText = "";
+}

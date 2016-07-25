@@ -1,9 +1,8 @@
-
 // Implement Mergesort
 function sort(list) {
 	// Handle base case
 	if (list.length <= 1) {
-			return list;
+		return list;
 	}; 
 	// split list in half and sort both halves recursively
 	var left = sort(list.slice(0, list.length 
@@ -17,7 +16,6 @@ function sort(list) {
 function merge(left, right) {
 	var leftI = 0;
 	var rightI = 0;
-	var length = left.length + right.length;
 	var sorted = [];
 	
 	while (leftI < left.length && rightI < right.length) {
