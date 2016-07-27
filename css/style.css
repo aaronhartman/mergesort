@@ -44,7 +44,17 @@ body {
   color: #25283D;
 }
 
+#inputCol {
+  visibility: hidden;
+}
+
+#outputCol {
+  visibility: hidden;
+}
+
 .numberList {
+  border: 2px #07BEB8;
+  background-color: #C4BABA;
   box-sizing: border-box;
   margin-top: 10px;
   margin-right: 10px;

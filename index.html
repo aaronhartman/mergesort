@@ -8,29 +8,29 @@
   </head>
 <body>
 	
-  <div class=row>
+  <div class="row">
   	<div id="heading" >
   	  <h1 id="main" >Mergesort Demo:</h1>
 	    <input type='file' id="button" accept='text/plain' onchange='openFile(event)'><br>
-	    <button type="button" id="button" onclick="mergesort()">Sort with Mergesort</button>
+	    <button type="button" id="button" onclick="doMergesort()">Sort with Mergesort</button>
       <button type="button" id="button" onclick="countInversions()">Sort and Count Inversions</button>
     </div>
-    <div class="col-md-6 col-lg-6">
+    <div id="inputCol" class="col-md-6 col-lg-6">
       <h1 id="inputHeader" class="listFrame"> </h1>
       <p id="inputContent" class="numberList"></p>
       <h3 id="inputFooter" class="listFrame"> </h3>
-    </div> <!--in-->
+    </div> <!--inputCol-->
 
-	<div class="col-md-6 col-lg-6">
-	  <h1 id="outputHeader" class="listFrame"> </h1>
-	  <p id="outputContent" class="numberList"></p>
-	  <h3 id="outputFooter" class="listFrame"> </h3>
-	  <h3 id="invFooter"    class="listFrame"> </h3>
-	</div> <!--out-->
+	  <div id="outputCol" class="col-md-6 col-lg-6">
+	    <h1 id="outputHeader" class="listFrame"> </h1>
+	    <p id="outputContent" class="numberList"></p>
+	    <h3 id="outputFooter" class="listFrame"> </h3>
+	    <h3 id="invFooter"    class="listFrame"> </h3>
+	  </div> <!--outputCol-->
   </div> <!--row -->
-	<script src="js/mergesort.js"></script>
-	<script src="js/countinversions.js"></script>
-  	<script src="js/script.js"></script>
+<script src="js/mergesort.js"></script>
+<script src="js/countinversions.js"></script>
+<script src="js/script.js"></script>
 </body>
 
 </html>
