@@ -6,7 +6,6 @@ var openFile = function(event) {
     clearContent();
     var input = event.target;
     if (input.files[0]) {
-        window.onload=function(){document.body.style.cursor='default';}
         // clear results upon selection of a new file
         // TODO: handle if user "Cancels" in file dialogue
 
@@ -15,9 +14,9 @@ var openFile = function(event) {
           inputArray = [];
           inputArray = reader.result.split("\n");
           fileOpen = true;  
-          // release reader resources  
           main();
         };
+  
       reader.readAsText(input.files[0]);
     } else {
       fileOpen = false;
@@ -31,14 +30,13 @@ var main = function() {
             };
 		      inputArray = inputArray.map(Number);
         // store unsorted set and layout text
-          var inputText = inputArray.join("\n");
 		      var inputFooterText = ("Unsorted length: " + inputArray.length);
           var inputHeader = document.getElementById('inputHeader');
           var outputHeader = document.getElementById('outputHeader');
           var inputContent = document.getElementById('inputContent');
           var inputHeaderText = ("Unsorted Array: ");
           var outputHeaderText = ("Sorted Array: ");
-          inputContent.innerText = inputText;
+          inputContent.innerText = inputArray.join("\n");
           inputFooter.innerText = inputFooterText;
           inputHeader.innerText = inputHeaderText;
           outputHeader.innerText = outputHeaderText;
@@ -46,6 +44,8 @@ var main = function() {
           // make numberList boxes visible if they aren't already
          
           document.getElementById("inputCol").style.visibility = "visible";
+          document.body.style.cursor='default';
+
         }
 
 var doMergesort = function() {
@@ -53,20 +53,20 @@ var doMergesort = function() {
     alert(noFileText);
   } else {
 // Apply mergesort and store results (mergesort.js)
+        clearResults();
+
         var result = sort(inputArray);
-        var outputText = result.join("\n");
         var invSortInput = (inputArray, Number(0));
         var outputFooterText = ("Sorted length: " + result.length);
         var outputContent  = document.getElementById('outputContent');
         var outputFooter = document.getElementById('outputFooter');
         var invFooter = document.getElementById('invFooter');        
-        outputContent.innerText  = outputText;
+        outputContent.innerText  = result.join("\n");
         outputFooter.innerText = outputFooterText;
         invFooter.innerText = "";
         document.getElementById("outputCol").style.visibility = "visible";
         // release resources
         result = null;
-        outputText = null;
   };
 };
 
@@ -74,10 +74,10 @@ var countInversions = function() {
   if (!fileOpen) {
     alert(noFileText);
   } else {
+        clearResults();
+        
         var invResult = sortInv(inputArray, 0);
         var invList = invResult[0];
-        var outputText = invList.join("\n");
-
         var outputFooterText = ("Sorted length: " + invList.length);
         var invFooterText = ("Inversions counted: " + invResult[1]);
         var outputContent  = document.getElementById('outputContent');
@@ -85,18 +85,24 @@ var countInversions = function() {
         var invFooter = document.getElementById('invFooter');
         var inputHeaderText = ("Unsorted Array: ");
         var outputHeaderText = ("Sorted Array: ");
-        outputContent.innerText  = outputText;
+        outputContent.innerText  = invList.join("\n");
         outputFooter.innerText = outputFooterText;
         invFooter.innerText = invFooterText;
         document.getElementById("outputCol").style.visibility = "visible";
         // release resources
         invResult = null;
-        outputText = null;
   };
 };
 
 var isBlank = function(str) {
     return (!str || /^\s*$/.test(str));
+};
+
+var clearResults = function() {
+  outputContent.innerText  = null;
+  outputContent.innerText  = null;
+  outputFooter.innerText = null;
+  document.getElementById("outputCol").style.visibility = "hidden";
 };
 
 var clearContent = function() {
@@ -109,3 +115,11 @@ var clearContent = function() {
   invFooter.innerText = null;
   inputArray = null;
 };
+
+function setCursorByID(id,cursorStyle) {
+ var elem;
+ if (document.getElementById &&
+    (elem=document.getElementById(id)) ) {
+  if (elem.style) elem.style.cursor=cursorStyle;
+ }
+}
