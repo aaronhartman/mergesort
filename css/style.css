@@ -7,17 +7,21 @@
 body {
   font-family: Courier, "Lucida Console", monospace;
   background-color: #EFD9CE;
+  padding-top: 0px;
 }
 
 #heading {
   box-sizing: border-box;
+  padding-top: 0px;
+  margin-top: 0px;
   background-color: #25283D;
   color: #EFD9CE;
+
 }
 
 #heading h1 {
   box-sizing: border-box;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-right: 10px;
   margin-left: 10px;
   padding-top: 0px;
@@ -74,6 +78,7 @@ body {
   
 }
 
+.wait, .wait * { cursor: wait !important; }
 /* Simple Responsive Framework. */
 .row {
   width: 100%;
