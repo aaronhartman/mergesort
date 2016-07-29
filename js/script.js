@@ -60,6 +60,7 @@ var doMergesort = function() {
         document.getElementById("outputCol").style.visibility = "visible";
 
         // release resources
+        result = null;
   };
 };
 
@@ -81,6 +82,8 @@ var countInversions = function() {
         invFooter.innerText = ("Inversions counted: " + invResult[1].toLocaleString());
         
         document.getElementById("outputCol").style.visibility = "visible";
+
+        invResult = null;
   };
 };
 
@@ -90,7 +93,7 @@ var isBlank = function(str) {
 
 var clearResults = function() {
   document.getElementById("outputCol").style.visibility = "hidden";
-  document.getElementById('invFooter').innerText = null;        
+  document.getElementById('invFooter').innerText = "";        
 };
 
 var clearContent = function() {
