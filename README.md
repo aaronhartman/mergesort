@@ -4,3 +4,5 @@ Also solves the classic "count the inversions" problem using divide and conquer.
 
 Author: Aaron Hartman aaron (dot) j (dot) hartman (at) gmail (dot) com
 
+To try it out, go to: https://aaronhartman.github.io/mergesort/
+
