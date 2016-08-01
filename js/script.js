@@ -1,5 +1,7 @@
+"use strict";
 var fileOpen = false;
 var noFileText = "Please select click \"Choose File\" to select a file to sort";
+
 var inputArray;
 // Accept file as input
 var openFile = function(event) {
@@ -54,13 +56,14 @@ var doMergesort = function() {
         var result = sort(inputArray);
         var outputContent  = document.getElementById('outputContent');
         var outputFooter = document.getElementById('outputFooter');
-        
+        var outputCol = document.getElementById("outputCol");
+
         outputContent.innerText  = result.join("\n");
         outputFooter.innerText = ("Sorted length: " + result.length.toLocaleString());
-        document.getElementById("outputCol").style.visibility = "visible";
+        outputCol.style.visibility = "visible";
 
         // release resources
-        result = null;
+        result = [];
   };
 };
 
@@ -76,14 +79,15 @@ var countInversions = function() {
         var outputContent  = document.getElementById('outputContent');
         var outputFooter = document.getElementById('outputFooter');
         var invFooter = document.getElementById('invFooter');
-        
+        var outputCol = document.getElementById("outputCol");
+
         outputContent.innerText  = invResult[0].join("\n");
         outputFooter.innerText = ("Sorted length: " + invResult[0].length.toLocaleString());
         invFooter.innerText = ("Inversions counted: " + invResult[1].toLocaleString());
         
-        document.getElementById("outputCol").style.visibility = "visible";
+        outputCol.style.visibility = "visible";
 
-        invResult = null;
+        invResult = [];
   };
 };
 
